@@ -4,12 +4,12 @@ Based on app built with vanilla js and parcel
 
 # To do App. Built with:
 
-**Sass
-**vercel
-javascript
+**Sass**
+**vercel**
+**javascript
 react
 firebase
-next.js
+next.js**
 
 # functionality
 
