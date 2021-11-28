@@ -1,6 +1,13 @@
 
 ----to intialize vercel---
 
-npx create-next-app@latest
+npx create-next-app@latest or clone from github
 
---------
+
+npm install
+npm install sass
+npm run dev
+
+--------Snippets------
+'comp' -> component function
+'imp' -> import and export component in index
