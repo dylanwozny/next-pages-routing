@@ -4,8 +4,8 @@ Based on app built with vanilla js and parcel
 
 # To do App. Built with:
 
-Sass
-vercel
+**Sass
+**vercel
 javascript
 react
 firebase
