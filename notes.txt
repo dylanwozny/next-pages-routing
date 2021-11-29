@@ -11,3 +11,8 @@ npm run dev
 --------Snippets------
 'comp' -> component function
 'imp' -> import and export component in index
+
+
+
+---- SVGS as React components ----
+SVGR ---> creates a react component

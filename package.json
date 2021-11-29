@@ -8,11 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/cli": "^6.0.0",
     "firebase": "^9.5.0",
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.43.5"
+    "sass": "^1.43.5",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "eslint": "7.32.0",

@@ -5,6 +5,7 @@
 // components
 import Brand from "../components/branding";
 import NavBar from "../components/navbar";
+import {GoogleProvider} from "../components/auth/providers/google";
 
 // <> this is a fragment, use instead of div
 export default function Home() {
@@ -12,7 +13,8 @@ export default function Home() {
     
     <>
       <NavBar/>
-      <Brand title="Sign up" tagline="Sign up for the app" />     
+      <Brand title="Sign up" tagline="Sign up for the app" />  
+      <GoogleProvider/>   
     </>
   )
 }
