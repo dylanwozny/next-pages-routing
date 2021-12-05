@@ -1,5 +1,5 @@
 # To do App for DMIT2008
-
+This application uses REACT and the REACT library NEXT.js
 Based on app built with vanilla js and parcel
 
 # To do App. Built with:
