@@ -5,6 +5,7 @@
 
 import Link from 'next/link';
 import {navbar} from "./styles.module.scss";
+import { UserLoginStatus } from 'components/auth/login-status';
 
 function NavBar(props){
 return(
@@ -16,20 +17,18 @@ return(
                     <a>Home</a>
                 </Link>
             </li>
-            <li>
+            {/* <li>
                 <Link href="/login">
                     <a>Login</a>
                 </Link>                
-            </li>
+            </li> */}
             <li>
                 <Link href="/signup">
                     <a>Signup</a>
                 </Link>   
             </li>            
             <li>
-                <Link href="/signup">
-                    <p>logged in</p>
-                </Link>   
+            <UserLoginStatus></UserLoginStatus>
             </li>
         </ul>
     </nav>

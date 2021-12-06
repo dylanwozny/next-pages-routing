@@ -3,16 +3,16 @@ import styled from 'styled-components';
 const LoginStatus = styled.figure`
   display: flex;
   gap: 0.5rem;
-  background-color: ${(props) => props.bgcolor || "transparent"};
+  background-color: ${(props) => props.bgcolor || "white"};
   justify-content: center;
   align-items: center;
   line-height: 0.65rem;
   vertical-align: center;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.25);
   padding: 0.125rem 0.5rem;
   border-radius: 3px;
   cursor: pointer;
-  width: 120px;
+  padding-top: 0.5rem;
+  
 
   img {
     border-radius: 50%;
@@ -26,7 +26,7 @@ const LoginStatus = styled.figure`
       font-weight: 600;
     }
     p:last-child {
-      font-weight: 8px;
+      font-weight: 8px;    
     }
   }
 `;
