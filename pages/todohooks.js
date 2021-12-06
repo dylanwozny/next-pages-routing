@@ -9,6 +9,10 @@ import styled from "styled-components";
 import { List, ListItem } from "components/ui/list";
 import { useRouter } from "next/router";
 
+
+// HOOK is a reusable function
+
+
 const Wrapper = styled.div``;
 
 

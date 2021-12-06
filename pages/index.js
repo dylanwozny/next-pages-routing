@@ -4,6 +4,7 @@ import NavBar from "../components/navbar";
 import {Button} from 'components/ui/buttons';
 import styled from "styled-components";
 import { List, ListItem } from "components/ui/list";
+import { UserLogin } from "components/auth/user-login";
 
 const Wrapper = styled.div``;
 
@@ -17,9 +18,10 @@ export default function Home() {
     <>
       <NavBar/>
       <Brand title="Dylan's To Do App" tagline="Get it all done !" />    
-        <Button>
+        {/* <Button>
           Login in to Firebase
-        </Button>
+        </Button> */}
+        <UserLogin></UserLogin>
       
 
     </>

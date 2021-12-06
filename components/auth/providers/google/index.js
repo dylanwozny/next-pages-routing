@@ -1,1 +1,1 @@
-export {default as GoogleProvider } from './google';
+export {default as GoogleProvider} from './GoogleProvider'

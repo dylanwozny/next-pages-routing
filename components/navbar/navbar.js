@@ -25,10 +25,10 @@ return(
                 <Link href="/signup">
                     <a>Signup</a>
                 </Link>   
-            </li>
+            </li>            
             <li>
-                <Link href="/todohooks">
-                    <a>To Do</a>
+                <Link href="/signup">
+                    <p>logged in</p>
                 </Link>   
             </li>
         </ul>
