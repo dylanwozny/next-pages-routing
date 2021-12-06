@@ -16,3 +16,27 @@ npm run dev
 
 ---- SVGS as React components ----
 SVGR ---> creates a react component
+
+
+-----NEXT start Problems------
+
+USE NPX
+NPX is local run and npm in global run
+
+'npx next'
+
+
+
+-----Components-----
+
+make reusable components
+try to make reusable components the smallest you can.
+
+component building guidelines:
+https://reactjs.org/docs/thinking-in-react.html
+
+
+-----external data fetcher swr----
+
+npm install swr
+

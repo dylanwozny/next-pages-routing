@@ -26,6 +26,11 @@ return(
                     <a>Signup</a>
                 </Link>   
             </li>
+            <li>
+                <Link href="/todohooks">
+                    <a>To Do</a>
+                </Link>   
+            </li>
         </ul>
     </nav>
   )
