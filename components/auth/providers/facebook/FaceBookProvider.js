@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ProviderButton } from "ui/buttons";
+import { ProviderButton } from "../../../ui/buttons/index";
 
 import facebook from "./facebook.png";
 

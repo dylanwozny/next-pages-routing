@@ -1,1 +1,1 @@
-export {default as GitHubProvider} from './GitHubProvider'
+export {GitHubProvider} from "./GitHubProvider";
