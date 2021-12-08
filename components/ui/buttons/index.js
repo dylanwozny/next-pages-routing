@@ -14,6 +14,15 @@ display: block;
 margin: 0 auto;
 font-family: "Open Sans",sans-serif;
 font-weight: 600;
+margin-bottom: 1rem;
+
+&:hover{
+    background-color: gray;
+    cursor: pointer;
+    background-color: #65ade5;
+    color: white;
+}
+
 `
 
 const ProviderButton = styled(Button)`
@@ -24,9 +33,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 
+&:hover{
+    background-color: gray;
+    cursor: pointer;
+    color: white;
+}
+
 span{
     padding-left: 1rem;
 }
+
 
 `
 

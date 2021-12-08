@@ -7,6 +7,8 @@ import { List, ListItem } from "components/ui/list";
 import { UserLogin } from "components/auth/user-login";
 import GoogleProvider  from "../components/auth/providers/google/GoogleProvider";
 import GithubAuthProvider from "../components/auth/providers/github/GitHubProvider";
+import { PageLayout,LoginHeader } from "layouts/home-page/styles";
+
 
 const Wrapper = styled.div``;
 
@@ -18,12 +20,17 @@ export default function Home() {
   return (
     
     <>
+
+
       <NavBar/>
-      <Brand title="Dylan's To Do App" tagline="Get it all done !" />    
+      <Brand title="Dylan's To Do App" tagline="Get it all done !" /> 
+        <LoginHeader>Email Login</LoginHeader>   
         <UserLogin></UserLogin>
-        <ProviderButton>Basic Provider</ProviderButton>
-        <GithubAuthProvider>Login with Github</GithubAuthProvider>
-        <GoogleProvider>Login with Google</GoogleProvider>
+        <PageLayout>
+          <LoginHeader>Provider Login</LoginHeader>
+          <GithubAuthProvider>Login with Github</GithubAuthProvider>
+          <GoogleProvider>Login with Google</GoogleProvider>
+        </PageLayout>
 
       
 
