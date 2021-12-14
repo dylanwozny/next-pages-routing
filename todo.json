@@ -1,0 +1,54 @@
+[
+    {
+        
+        "category": "friends",
+        "title":"Lunch with Ivan",
+        "isComplete": true,
+        "startDate": "saturday oct 30th",
+        "startTime": "12:00pm",
+        "endDate": "saturday oct 30th",
+        "endTime": "2:00pm"
+    },
+    {
+        
+        "category": "Health",
+        "title":"Physio",
+        "isComplete": false,
+        "startDate": "tuesday nov 30th",
+        "startTime": "2:00pm",
+        "endDate": "tuesday nov 30th",
+        "endTime": "3:00pm"
+    },
+    {
+        
+        "category": "Work",
+        "title":"Billionaire CEO Board Meeting",
+        "isComplete": true,
+        "startDate": "wednesday oct 20th",
+        "startTime": "12:00pm",
+        "endDate": "wednesday oct 20th",
+        "endTime": "5:00pm"
+    },
+    {
+        
+        "category": "HomeWork",
+        "title":"Dmit2008 assignment 1",
+        "isComplete": true,
+        "startDate": "thursday oct 28th",
+        "startTime": "1:00pm",
+        "endDate": "thursday oct 28th",
+        "endTime": "4:00pm"
+    },
+    {
+        
+        "category": "Activity",
+        "title":"walk dog",
+        "isComplete": true,
+        "startDate": "tuesday oct 26th",
+        "startTime": "12:00pm",
+        "endDate": "tuesday oct 26th",
+        "endTime": "2:00pm"
+    }
+
+]
+
