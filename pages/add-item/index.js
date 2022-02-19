@@ -29,12 +29,12 @@ function AddItemPage(props) {
 
   
 async function updateUserData(newToDo){
+  
   if(user){
-    console.log(newToDo)
     
+    console.log(newToDo)
     const docPath = `todoitems/${user.uid}`;
     const docRef = await doc(db, docPath)
-    const temp = await updateDoc(docRef, newToDo);
     const todos = await getDoc(docRef)
     console.log(todos.data())
     
@@ -68,7 +68,6 @@ async function updateUserData(newToDo){
   return (
     <>
       <NavBar/>
-      <div>{desc}</div>
       <ContentSection>
       <Link href="/todo">
           <a>
