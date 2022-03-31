@@ -1,24 +1,31 @@
 import styled from 'styled-components';
 
-const ItemId = styled.div`
-  label{
-    margin:0;
-   display:block;
-    padding-right: 0.25rem;
-  }
+const UniqueId = styled.div`
+
+  margin-bottom: 2rem;
+
   input{
      width: 100px;
    
   }
+
+textarea{
+  margin:0;
+  display:block;
+  padding-right: 0.25rem;
+}
 `;
- 
- function UniqueId({label,uid,...props}) {
-    return (
-       <ItemId>
-        <label htmlFor="uid">{label || "item id:"}</label>
-        <input type="text" disabled placeholder={uid} />
-      </ItemId>
-    )
+
+function ItemId ({id,...props}) {
+  return(
+    <UniqueId {...props}>
+      <label htmlFor="idNum">Auto Generated Unique Id</label>
+      <br />
+      <input type="text" id="idNum" value={id}/>
+    </UniqueId>
+  )
 }
 
-export default UniqueId
+export default ItemId;
+
+

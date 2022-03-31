@@ -46,4 +46,26 @@ span{
 
 `
 
-export {Button, ProviderButton};
+const SvgButton = styled.button`
+padding: .5rem;
+background: transparent;
+border: none;
+&:hover svg{
+    fill: ${props => props.userColor || "black"};
+
+}
+
+svg{
+    height: 100%;
+    width: 2rem;
+    fill: none;
+    cursor: pointer;
+    color: ${props => props.userColor || "black"};
+}
+
+`;
+
+
+
+
+export {Button, ProviderButton, SvgButton};

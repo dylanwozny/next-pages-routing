@@ -1,4 +1,5 @@
 {
     "presets": ["next/babel"],
-    "plugins": ["styled-components"]
+    "plugins": ["styled-components",
+      "@quickbaseoss/babel-plugin-styled-components-css-namespace"]
   }

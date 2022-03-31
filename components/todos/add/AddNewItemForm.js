@@ -5,7 +5,7 @@ const AddItemForm = styled.form`
 `;
 // onSubmit is a function to be passed 
  function AddNewItemForm({children, submitHandler, ...props}) {
-    
+    console.log(submitHandler);
     return (
         <AddItemForm onSubmit={(e) => submitHandler(e)}>
             {children}
@@ -13,4 +13,4 @@ const AddItemForm = styled.form`
     )
 }
 
-export default AddNewItemForm
+export default AddNewItemForm;

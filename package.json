@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
     "@svgr/cli": "^6.0.0",
     "babel-plugin-styled-components": "^2.0.2",
     "firebase": "^9.5.0",

@@ -12,6 +12,7 @@ const AddNewItem = styled.aside`
        font-size:2.5rem;
        font-weight: 600;
        letter-spacing: -2px;
+       
    }
    textarea{
        resize: none;
@@ -43,6 +44,7 @@ const AddItem = styled.form`
 `;
 
 const ItemDescription = styled.div`
+
   
 `;
 

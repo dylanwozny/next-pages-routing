@@ -10,6 +10,7 @@ import GithubAuthProvider from "../components/auth/providers/github/GitHubProvid
 import { PageLayout,LoginHeader } from "layouts/home-page/styles";
 
 
+
 const Wrapper = styled.div``;
 
 
@@ -23,6 +24,7 @@ export default function Home() {
 
 
       <NavBar/>
+
       <Brand title="Dylan's To Do App" tagline="Get it all done !" /> 
         <LoginHeader>Email Login</LoginHeader>   
         <UserLogin></UserLogin>
@@ -30,10 +32,7 @@ export default function Home() {
           <LoginHeader>Provider Login</LoginHeader>
           <GithubAuthProvider>Login with Github</GithubAuthProvider>
           <GoogleProvider>Login with Google</GoogleProvider>
-        </PageLayout>
-
-      
-
+        </PageLayout> 
     </>
   )
 }

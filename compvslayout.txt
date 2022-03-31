@@ -1,0 +1,5 @@
+Pages: are just that, pages. They are what opens when you go to a specific route. What you put inside of them depends on the complexity of your project. Are you building a simple landing page? You might be able to just throw in all your html, css and script into that file alone and have it display that.
+
+Components: if you have more complex data, or simply want to reuse code in several places, create components. They allow you to make your pages more readable, destructure your monolithic code into more read- and debug-friendly chunks and allow you to reuse the same functionality and look in several places in your app.
+
+Layouts: if you have some components, which you know you want to use on several pages (like the header and footer, for example), you can just import and add these into a layout, then use this layout on the pages that require it. No need to separately import and add those mandatory components into each page separately and there's less duplication of code. Also any css definitions which should apply only to specific pages can be put in there, instead of having to add them to each page/component separately.

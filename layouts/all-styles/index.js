@@ -1,0 +1,1 @@
+export { mainContainer } from "./styles";

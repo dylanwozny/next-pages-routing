@@ -1,8 +1,8 @@
 import styled from 'styled-components'
  
-const PageLayout = styled.div`
+const PageLayout = styled.main`
 
-    max-width: 460px;
+    max-width: 30rem;
     margin: 3rem auto 0;
     padding: 3rem 2rem;
     background-color: white;
@@ -25,12 +25,6 @@ text-align: center;
    
 `
 
-
-
-
-
- 
- 
 
 export {PageLayout,LoginHeader}
 

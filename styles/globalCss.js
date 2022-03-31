@@ -394,7 +394,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.441rem;
+  font-size: clamp(1.953rem, 8vw, 2.441rem);
 }
 
 h3 {
@@ -412,6 +412,12 @@ h5 {
 small,
 .text_small {
   font-size: 0.8rem;
+}
+
+main{
+  max-width: 31rem;
+  margin: 0 auto;
+  padding: .5rem;
 }
 
 `
