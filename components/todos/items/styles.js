@@ -46,6 +46,8 @@ margin-bottom: 1rem;
     box-shadow: 0 0 2px 0px #dddddd;
     padding: 10rem 1rem;
     display: block;
+    
+    
 
 
     h3{
@@ -80,6 +82,7 @@ const ListHeader = styled.div`
 display: flex;
 gap: 1rem;
 align-items: center;
+flex-wrap: wrap;
 
 
 .item-small{
@@ -92,6 +95,11 @@ const ListTitle = styled.h3`
     flex: 10;
     font-size: clamp(1.25rem, 5vw, 1.563rem);
     text-transform: uppercase;
+    word-wrap: normal;
+    max-width: 20rem;
+
+   
+    
 `;
 
 const ListContainer = styled.ul`

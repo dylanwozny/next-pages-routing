@@ -12,6 +12,8 @@ import styled  from "styled-components";
 import { Button } from "components/ui/buttons";
 import Link from "next/link";
 import { clearIndexedDbPersistence, deleteDoc, deleteField, doc, updateDoc,update } from "firebase/firestore";
+import { render } from "react-dom";
+
 
 const name = styled.li`
 `;
@@ -32,6 +34,7 @@ padding-top: 10rem;
 
 
 
+
 h3{
     text-align: center;
     margin-bottom: 3rem;
@@ -42,6 +45,7 @@ h3{
     top: 0px !important;
     left: 0px !important;
     width: 100%;
+ 
 
 }
 
@@ -75,14 +79,49 @@ const CancelButton = styled(Button)`
 // on button press, have a pop up window, then run query to delete item.
 
 
-function List({userId,...todoItem}) {
+function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
 
-    console.log(userId);
+
+    
+    console.log("this is the toitemsetter " + todoSet);
     // grabbing the uuid key of each doc
     let docKeys = Object.getOwnPropertyNames(todoItem);
+    console.log(docKeys);
 
-    const [showWindow, setShowWindow] = useState('');
-    // const [ItemKey, setItemKey] = useState('');
+
+    // Rerender on delete logic 
+    const deleteObject = () => {
+        if(theFlag > 1){
+            flag(1);
+            console.log(theFlag);
+        }
+        
+        else {
+            flag(2);
+            console.log(theFlag);
+        }
+
+    }
+    
+    
+
+    // set object state of item list
+    const [objectKeys,updateKeys] = useState({});
+    const [books, updateBooks] = useState([]);
+    const handleClick = () => {
+
+        // update the books state property by adding a new book
+ 
+        updateBooks([...books, { name: 'A new Book', id: '...'}]);
+    }
+
+
+
+
+    function updateObjectState(){
+        setTodoItem();
+
+    }
 
     // DELETE FIREBASE DOCUMENT
     function deleteHandleSubmit(e,propKey){
@@ -92,7 +131,7 @@ function List({userId,...todoItem}) {
     let theElement = document.querySelector("." + theClass);
     theElement.classList.remove("show");
     console.log(theElement);    
-    console.log("delete item");
+    console.log("delete item confirmed");
     console.log(theKey)
     // RUN QUERY HERE AND REFRESH LIST
     async function deleteFireBaseDoc(key){
@@ -101,13 +140,17 @@ function List({userId,...todoItem}) {
         const remove = await updateDoc(docRef,{
             [key]: deleteField()
         })
-        
+     
     }
-    deleteFireBaseDoc(theKey);
+    //delete from db
+    deleteFireBaseDoc(theKey); 
+    //change flag for state change and rerender
+    deleteObject();
+    
+
     }   
 
 
- 
     function cancelHandleSubmit(e,propKey){
     e.preventDefault();
     let theKey = propKey;
@@ -132,6 +175,8 @@ function List({userId,...todoItem}) {
         console.log(theUid);    
         console.log("delete item");
         console.log(keyArray);
+
+
         
 
     }
@@ -141,13 +186,6 @@ function List({userId,...todoItem}) {
     // loop
 
     let keyArray = [];
-
-    function testClick(e){
-        e.preventDefault()
-        console.log("test click on");
-
-    }
-
 
     const mapItems = docKeys.map((data,index) => {
 
@@ -188,6 +226,9 @@ function List({userId,...todoItem}) {
         // use Props passed components or just JSX HTML
 
     
+
+    
+
         return(
             <>
                 <ListItem  key={index}  className={isDoneBody}>
@@ -200,7 +241,7 @@ function List({userId,...todoItem}) {
                             <h3 > Are you sure you want to delete this item ? {index}</h3>
                             {/* key is a hidden property */}
                             <CancelButton  onClick={(e) => cancelHandleSubmit(e,theKey)}>Cancel</CancelButton> 
-                            <DeleteButton  onClick={(e) => deleteHandleSubmit(e,theKey)}>Delete</DeleteButton>     
+                            <DeleteButton  onClick={(e) => deleteHandleSubmit(e,theKey)}>Delete</DeleteButton>   
                         </div>                
                         </PopUp>
                     </div>
@@ -219,17 +260,19 @@ function List({userId,...todoItem}) {
                     <li>{todoItem[data].desc}</li>
                     </ListBody>
                 </ListItem>
+                   
             </>                            
         )
     })
 
-    
+   
     return (
         <ListContainer>
             {mapItems}
         </ListContainer>
 
     )
+
 }
 
 export default List;

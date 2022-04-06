@@ -16,28 +16,29 @@ import {
 } from "components/todos";
 import NavBar from "components/navbar/navbar";
 import styled from "styled-components";
+import { useRouter } from 'next/router';
 
 
-
-
-
+// ---styled components---
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
 `;
 
+
+// ---component function---
 function AddItemPage(props) {
   const user = useAuth(); 
   const [uid,setUid] = useState()
   const [desc, setDesc] = useState('');
   const [category,setCategory] = useState('');
   const [IdKey,setIdKey] = useState('');
-
+  // generate id
   useEffect(()=>{
     setUid(uuid().substring(0,8))
 
   },[user]);
 
-  
+// ----db function to get data and update firebase db----
 async function updateUserData(newToDo){
   console.log(newToDo);
   // functions below need to be async to get data
@@ -48,16 +49,21 @@ async function updateUserData(newToDo){
     const temp = await updateDoc(docRef,newToDo)
     const todos = await getDoc(docRef)
     console.log(todos.data())
-
-
-    
   }
 } 
- 
-//   // form submit event handler
+
+  //--- declaring redirect function after submit. Must be outside of event handler.---
+  const router = useRouter();
+  function redirectPage(){
+    const redirectUser = router.push('/todo');
+
+
+  }
+
+  
+//----form submit event handler----
   function handleSubmit(e) {
     e.preventDefault();
-    
     
     updateUserData({[`${uid}`]:{
       id:uid,
@@ -65,8 +71,12 @@ async function updateUserData(newToDo){
       category,
       completed:true
     }});
+
+    setTimeout(()=>{redirectPage(),13000})
+     
   }
 
+  //----component render----
   return (
     <>
       <NavBar/>

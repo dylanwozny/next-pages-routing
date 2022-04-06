@@ -15,16 +15,33 @@ import {collection, getDocs} from "firebase/firestore"
 import { AddNewContainer } from "components/todos/add-area";
 
 
+// set state rerenders the page, this works here, figure out how to pass to other components....
+function useForceUpdate() {
+    let [value, setState] = useState(true);
+    return () => setState(!value);
+  }
 
-
+  let count = 0;
+ 
 // ---- you can move the logic to hooks and import it to do component ----//
 
 // <> this is a fragment, use instead of div
 // get and setter 
 function ToDoPage(props) {
     // making an empty object for future data
+
+
+
+
     const [todoItem,setTodoItem] = useState({});
+    const [Flag,setFlag] = useState(1);
     const user = useAuth()
+
+
+
+    count++;
+    // pass this to items component ?
+    let forceUpdate = useForceUpdate();
 
     // getting json object from firebase
     useEffect(()=>{
@@ -43,7 +60,10 @@ function ToDoPage(props) {
             getFirebaseDoc();
         }
         
-    },[user])
+    },[user,Flag])
+
+    //--------------------- to be run on delete list change, rerenders and removes deleted item----------------------
+
 
 
     // if logged in
@@ -52,16 +72,20 @@ function ToDoPage(props) {
         //  todoItem data is retrieved outside useeffect functio
 
         // Put logic into react component
+        console.log("state below");
         console.log(todoItem)
 
           let docKeys = Object.getOwnPropertyNames(todoItem);
           console.log(docKeys);
 
 
+
           docKeys.forEach(element => {
               console.log(todoItem[element].desc)
               
           });
+        
+
  
 
         if(todoItem){
@@ -71,12 +95,19 @@ function ToDoPage(props) {
                 <NavBar/>
                 <Brand title="The to do list!" tagline="Here are your to do items" />
                 <main>
+                {/* <button onClick={deleteObject}>Click me to update</button> */}
+                {/* <h1>{count++} times clicked</h1> */}
+                {/* <button onClick={forceUpdate}>Refresh</button> */}
                 <AddNewContainer/>
-                <ToDoList userId={user} {...todoItem}/>
+                <ToDoList theFlag={Flag} flag={setFlag} todoSet={()=>setTodoItem()} userId={user} {...todoItem} refreshPage={()=>forceUpdate()} theCount={count} />
+                
                 <Link href="/">
                      <a>Go Home</a>
+                     
                 </Link> 
-                </main>      
+
+                </main> 
+                 
                 </>
                 )
         }else{
