@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 const IsDone = styled.div`
 
+label{
+    margin-right: 1rem;
+}
+
 
 
 `; 
@@ -12,7 +16,7 @@ const IsDone = styled.div`
 
     return (
         <IsDone {...props}>
-            <label htmlFor="isdone">Is this Item Done ?</label>
+            <label htmlFor="isdone">Is this Item Done:</label>
             <input type="radio" id="html" name="isdone" value="HTML"
             onChange={(e)=>changeHandler(e)}></input>
         </IsDone>

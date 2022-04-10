@@ -21,7 +21,7 @@ const Title = styled.h1`
     return (
 
         <SectionHeader {...props}>
-          <Brand title="Add an item" tagline={"What do you have to do ?"} { ...props}/>
+          <Brand title={title} tagline={"review your item below"} { ...props}/>
           {/* <Title {...props}>{title || "Content Section Title"}</Title> */}
         </SectionHeader>
     )

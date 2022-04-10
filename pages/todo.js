@@ -12,7 +12,7 @@ import {db} from "../firebase";
 import{doc,getDoc} from "firebase/firestore"
 import { useEffect,useState } from "react";
 import {collection, getDocs} from "firebase/firestore"
-import { AddNewContainer } from "components/todos/add-area";
+import { AddNewContainer } from "components/todos/new-area";
 
 
 // set state rerenders the page, this works here, figure out how to pass to other components....
@@ -126,8 +126,16 @@ function ToDoPage(props) {
 
     return (
         <>
+        
         <NavBar/>
-        <Brand title="you are not a user of this app !" tagline="Get it all done !" />   </>
+        <main>
+        <Brand title="You are not a user of this app !" tagline="Sign up to use the app" /> 
+        <Link href="/">
+             <a>Go Home</a>
+        </Link> 
+        </main>
+
+        </>
         )
 }
 

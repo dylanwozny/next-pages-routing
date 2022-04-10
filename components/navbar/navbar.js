@@ -13,7 +13,7 @@ return(
         <ul>
             <li>
                 
-                <Link href="/">
+                <Link href="/todo">
                     <a>Home</a>
                 </Link>
             </li>

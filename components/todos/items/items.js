@@ -32,7 +32,14 @@ background-color: rgba(200, 200, 200,0.8);
 padding-top: 10rem;
 
 
-
+.delete-message{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 15rem;
+    color: #fcfcfc;
+    width: 100%;
+    background-color: #22273a;
+}
 
 
 h3{
@@ -81,7 +88,9 @@ const CancelButton = styled(Button)`
 
 function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
 
-
+    // Delete in progress popup
+    let theDeletePopup = document.querySelector(".delete-popup");
+    
     
     console.log("this is the toitemsetter " + todoSet);
     // grabbing the uuid key of each doc
@@ -116,8 +125,6 @@ function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
     }
 
 
-
-
     function updateObjectState(){
         setTodoItem();
 
@@ -144,10 +151,16 @@ function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
     }
     //delete from db
     deleteFireBaseDoc(theKey); 
-    //change flag for state change and rerender
-    deleteObject();
     
-
+    theDeletePopup.classList.add("show");
+    
+    setTimeout(() => {
+        
+        console.log("timeout now");
+        theDeletePopup.classList.remove("show");
+        //change flag forstate change and rerender
+        deleteObject();        
+    }, 1000);
     }   
 
 
@@ -216,7 +229,7 @@ function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
             isDoneBody = "";
         }
 
-
+        // let setSession = window.sessionStorage.setItem("animals","cat");
 
 
         // FIX STYLING ON COMPONENTS
@@ -250,7 +263,7 @@ function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
                     
                     <ListHeader>
                         <ListTitle>{todoItem[data].category}</ListTitle>
-                        <ListEdit color="orange"/>
+                        <ListEdit  itemId={theKey}  color="orange"/>
                         <ListDelete color="red" clickHandler={(e) => deleteItemSubmit(e,theKey)}></ListDelete>                        
                     </ListHeader>
                     <ListBody>
@@ -268,6 +281,11 @@ function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
    
     return (
         <ListContainer>
+            <PopUp className="delete-popup">
+                    <p className="delete-message">
+                        Deleting Item. Please Wait.
+                    </p>
+            </PopUp>
             {mapItems}
         </ListContainer>
 
