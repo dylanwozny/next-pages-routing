@@ -13,6 +13,7 @@ import { Button } from "components/ui/buttons";
 import Link from "next/link";
 import { clearIndexedDbPersistence, deleteDoc, deleteField, doc, updateDoc,update } from "firebase/firestore";
 import { render } from "react-dom";
+import { useAppContext } from "context/state";
 
 
 const name = styled.li`
@@ -90,7 +91,7 @@ function List({theFlag,flag,todoSet,userId,refreshPage,theCount,...todoItem}) {
 
     // Delete in progress popup
     let theDeletePopup = document.querySelector(".delete-popup");
-    
+
     
     console.log("this is the toitemsetter " + todoSet);
     // grabbing the uuid key of each doc

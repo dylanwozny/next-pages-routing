@@ -10,9 +10,12 @@ import { useAuth } from "hooks/useAuth";
 import Link from "next/link";
 import {db} from "../firebase";
 import{doc,getDoc} from "firebase/firestore"
-import { useEffect,useState } from "react";
+import { useEffect,useState,useContext } from "react";
 import {collection, getDocs} from "firebase/firestore"
 import { AddNewContainer } from "components/todos/new-area";
+import {ToDoContext} from "context/state";
+
+
 
 
 // set state rerenders the page, this works here, figure out how to pass to other components....
@@ -30,13 +33,19 @@ function useForceUpdate() {
 function ToDoPage(props) {
     // making an empty object for future data
 
+    // use context persistant data
+    // call what you want from context
+    const {todos,setTodos,accessContext,userId,setUserId} = useContext(ToDoContext)
 
+    accessContext();
 
 
     const [todoItem,setTodoItem] = useState({});
     const [Flag,setFlag] = useState(1);
     const user = useAuth()
 
+   
+    
 
 
     count++;
@@ -55,14 +64,25 @@ function ToDoPage(props) {
             console.log(userToDos.data())
             //taking data from db, using setter to pass information into settodoitem as an object
             setTodoItem(Object.assign({},userToDos.data()))
+
+
+
         }
         if(user){
             getFirebaseDoc();
+            
         }
         
     },[user,Flag])
 
     //--------------------- to be run on delete list change, rerenders and removes deleted item----------------------
+
+
+    useEffect(()=>{
+        // set redux todos
+        setTodos(todoItem);
+        
+    })
 
 
 
@@ -74,6 +94,12 @@ function ToDoPage(props) {
         // Put logic into react component
         console.log("state below");
         console.log(todoItem)
+        console.log("the context state");
+        console.log(todos);
+         // set user id in context
+        setUserId(user.uid);
+        console.log(userId)
+
 
           let docKeys = Object.getOwnPropertyNames(todoItem);
           console.log(docKeys);
@@ -84,11 +110,12 @@ function ToDoPage(props) {
               console.log(todoItem[element].desc)
               
           });
-        
+
+
 
  
-
         if(todoItem){
+
             return ( 
                       
                 <>                

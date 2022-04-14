@@ -16,13 +16,14 @@ const ItemDescription = styled.div`
 `; 
 
 // drill down data
- function ItemTextArea ({type,changeHandler,...props}) {
+ function ItemTextArea ({theplaceholder,type,changeHandler,...props}) {
 
     if(type === "description"){   
     return (
         <ItemDescription {...props}>
             <label htmlFor="description">Description</label>
-            <textarea placeholder="Add Your To Do Description Here"
+            <textarea 
+            defaultValue={theplaceholder}
             onChange={(e)=>changeHandler(e)}/>
         </ItemDescription>
     )
@@ -32,7 +33,8 @@ const ItemDescription = styled.div`
         return (
             <ItemDescription {...props}>
                 <label htmlFor="category">Category</label>
-                <textarea placeholder="Add Your Category Here"
+                <textarea 
+                defaultValue={theplaceholder}
                 onChange={(e)=>changeHandler(e)}/>
             </ItemDescription>
         )

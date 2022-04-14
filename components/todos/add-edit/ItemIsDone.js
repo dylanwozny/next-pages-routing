@@ -10,14 +10,15 @@ label{
 `; 
 
 // drill down data
- function ItemIsDone ({changeHandler,...props}) {
+ function ItemIsDone ({value,changeHandler,...props}) {
 
 // ADD COMPONENT TO NEW ITEM INDEX   
 
     return (
         <IsDone {...props}>
             <label htmlFor="isdone">Is this Item Done:</label>
-            <input type="radio" id="html" name="isdone" value="HTML"
+            <input type="checkbox" id="html" name="isdone"
+            defaultChecked={value}
             onChange={(e)=>changeHandler(e)}></input>
         </IsDone>
     )

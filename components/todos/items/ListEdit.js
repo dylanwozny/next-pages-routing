@@ -17,9 +17,8 @@ return(
   <Link href={{
     pathname: `/edit-item/[id]`,
     query: {id: props.itemId,
-            desc: props.itemDesc
     }
-  }} data={[props.itemId,props.itemDesc]} >
+  }} data={props.itemId} >
   <EditButton userColor={props.color}>
      <span className="item-small"><FiEdit2/></span>
      <p>{props.itemId}</p>

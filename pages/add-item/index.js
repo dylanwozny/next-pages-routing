@@ -56,8 +56,6 @@ async function updateUserData(newToDo){
   const router = useRouter();
   function redirectPage(){
     const redirectUser = router.push('/todo');
-
-
   }
 
   
@@ -71,9 +69,7 @@ async function updateUserData(newToDo){
       category,
       completed:true
     }});
-
     setTimeout(()=>{redirectPage(),13000})
-     
   }
 
   //----component render----
@@ -82,6 +78,7 @@ async function updateUserData(newToDo){
       <NavBar/>
       <main>
       <ContentSection>
+        <div>{category}</div>
       <Link href="/todo">
           <a>
             <IoIosArrowRoundBack />
