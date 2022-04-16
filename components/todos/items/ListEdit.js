@@ -21,7 +21,6 @@ return(
   }} data={props.itemId} >
   <EditButton userColor={props.color}>
      <span className="item-small"><FiEdit2/></span>
-     <p>{props.itemId}</p>
   </EditButton>
   </Link>
 

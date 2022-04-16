@@ -19,6 +19,7 @@ import styled from "styled-components";
 import { useRouter } from 'next/router';
 
 
+
 // ---styled components---
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
@@ -58,18 +59,43 @@ async function updateUserData(newToDo){
     const redirectUser = router.push('/todo');
   }
 
-  
+// validation Flag
+let validPass = true;
+
+// error message object
+let errorMessages = {
+  category:"",
+  description:""
+};
+//validation Logic
+if(!category){
+errorMessages["category"] = "Please Do Not Leave Category Blank"
+validPass = false;
+}
+
+if(!desc){
+errorMessages["description"] = "Please Do Not Leave Description Blank"
+validPass = false;
+}
+
+console.log("did it pass?");
+console.log(validPass);
+
 //----form submit event handler----
   function handleSubmit(e) {
     e.preventDefault();
-    
+    if(!validPass){
+
+    }
+    else{
     updateUserData({[`${uid}`]:{
       id:uid,
       desc,
       category,
       completed:true
     }});
-    setTimeout(()=>{redirectPage(),13000})
+    redirectPage()
+  }
   }
 
   //----component render----
@@ -78,7 +104,6 @@ async function updateUserData(newToDo){
       <NavBar/>
       <main>
       <ContentSection>
-        <div>{category}</div>
       <Link href="/todo">
           <a>
             <IoIosArrowRoundBack />
@@ -97,10 +122,12 @@ async function updateUserData(newToDo){
           <InputWrapper>
             <UniqueId id={uid}/>  
             <ItemTextArea
+            error={errorMessages.description}
               type="description"
               changeHandler={(e)=> setDesc(e.currentTarget.value)}
             />
             <ItemTextArea type="category"
+            error={errorMessages.category}
             changeHandler={(e)=> setCategory(e.currentTarget.value)}>           
             </ItemTextArea>
           </InputWrapper>

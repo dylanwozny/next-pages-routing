@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 import { ItemDescription } from "components/todos/styles";
 import { ToDoContext } from "context/state";
 
+
 // ---styled components---
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
@@ -89,12 +90,40 @@ function AddItemPage(props) {
     const redirectUser = router.push("/todo");
   }
 
-  // NEED TO FIGURE OUT WHY OBJECT PERSISTANCE IS WACK
-  // current placeholder information
+  // validation Flag
+  let validPass = true;
+
+    // error message object
+    let errorMessages = {
+      category:"",
+      description:"",
+      isdone:""
+  
+    };
+  //validation Logic
+  if(!category){
+    errorMessages["category"] = "Please Do Not Leave Category Blank"
+    validPass = false;
+  }
+
+  if(!desc){
+    errorMessages["description"] = "Please Do Not Leave Description Blank"
+    validPass = false;
+  }
+
+  console.log("did it pass?");
+  console.log(validPass);
+
 
   //----form submit event handler----
   function handleSubmit(e) {
     e.preventDefault();
+    // if validation fail do nothing
+    if(!validPass){
+
+    }
+
+    else{
     updateUserData({
       [`${theId}`]: {
         id: theId,
@@ -104,10 +133,14 @@ function AddItemPage(props) {
       },
     });
 
-    setTimeout(() => {
-      redirectPage(), 13000;
-    });
+    
+      redirectPage();
+    
   }
+  }
+
+
+
 
   //----component render----
   return (
@@ -115,9 +148,6 @@ function AddItemPage(props) {
       <NavBar />
       <main>
         {/* <p>{ItemDescription}</p> */}
-        <div>{category}</div>
-        <div>{desc}</div>
-        {console.log(done)}
         <ContentSection>
           <Link href="/todo">
             <a>
@@ -137,21 +167,25 @@ function AddItemPage(props) {
             <InputWrapper>
               <UniqueId id={theId} />
               <ItemTextArea
+                error={errorMessages["description"]}
                 type="description"
                 theplaceholder={curDesc}
                 changeHandler={(e) => setDesc(e.currentTarget.value)}
               />
+              
+              
               <ItemTextArea
+                error={errorMessages["category"]}
                 type="category"
                 theplaceholder={curCategory}
                 changeHandler={(e) => setCategory(e.currentTarget.value)}
-              ></ItemTextArea>
+              />
               <ItemIsDone
                 value={curCompleted}
                 changeHandler={(e) => setDone(e.currentTarget.checked)}
               />
             </InputWrapper>
-            <Button type="submit" bgcolor="crimson" color="white">
+            <Button  type="submit" bgcolor="crimson" color="white">
               Add New To Do Item
             </Button>
           </AddNewItemForm>

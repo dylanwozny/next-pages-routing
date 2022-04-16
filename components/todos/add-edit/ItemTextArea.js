@@ -1,5 +1,9 @@
 import styled from 'styled-components';
+import ValidationMessage from 'components/ui/forms/ErrorMessage';
 const ItemDescription = styled.div`
+
+    margin-bottom: 2rem;
+
    textarea{
        resize: none;
        border:none;
@@ -8,7 +12,6 @@ const ItemDescription = styled.div`
        color:#5a5b66;
        font-size:14px;
        padding: 0.25rem;
-       margin-bottom: .5rem;
    }
    input, textarea{
        width:100%;
@@ -16,7 +19,7 @@ const ItemDescription = styled.div`
 `; 
 
 // drill down data
- function ItemTextArea ({theplaceholder,type,changeHandler,...props}) {
+ function ItemTextArea ({error,theplaceholder,type,changeHandler,...props}) {
 
     if(type === "description"){   
     return (
@@ -25,6 +28,7 @@ const ItemDescription = styled.div`
             <textarea 
             defaultValue={theplaceholder}
             onChange={(e)=>changeHandler(e)}/>
+            <ValidationMessage alert={error}></ValidationMessage>
         </ItemDescription>
     )
     }
@@ -36,6 +40,7 @@ const ItemDescription = styled.div`
                 <textarea 
                 defaultValue={theplaceholder}
                 onChange={(e)=>changeHandler(e)}/>
+                <ValidationMessage alert={error}></ValidationMessage>
             </ItemDescription>
         )
     }
