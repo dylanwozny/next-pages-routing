@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 /*!
@@ -375,6 +375,8 @@ p {
   font-family: "Open Sans", sans-serif;
 }
 
+
+
 h1,
 h2,
 h3,
@@ -420,6 +422,6 @@ main{
   padding: .5rem;
 }
 
-`
+`;
 
 export default GlobalStyles;

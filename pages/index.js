@@ -1,38 +1,61 @@
 import firebase from "../firebase";
-import Brand from "../components/branding"
+import Brand from "../components/branding";
 import NavBar from "../components/navbar";
-import {Button, ProviderButton} from 'components/ui/buttons';
+import { Button, ProviderButton } from "components/ui/buttons";
 import styled from "styled-components";
 import { List, ListItem } from "components/ui/list";
 import { UserLogin } from "components/auth/user-login";
-import GoogleProvider  from "../components/auth/providers/google/GoogleProvider";
+import GoogleProvider from "../components/auth/providers/google/GoogleProvider";
 import GithubAuthProvider from "../components/auth/providers/github/GitHubProvider";
-import { PageLayout,LoginHeader } from "layouts/home-page/styles";
+import { PageLayout, LoginHeader } from "layouts/home-page/styles";
+import { useState } from "react";
 
+const ErrorWrapper = styled.div``;
 
+const ErrorMessage = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
 
-const Wrapper = styled.div``;
+  color: red;
+  margin-bottom: 2rem;
 
+  .show {
+    display: block;
+    transform: 1s;
+    text-transform: capitalize;
+  }
 
+`;
 
 // <> this is a fragment, use instead of div
 export default function Home() {
+  // provider error message
+
+
+  const [Mess,setMess] = useState('');
+
+  let erMessage = "";
+  const errorProvider = (message) => {
+    // console.log(message);
+    setMess(message);
+    
+  };
 
   return (
-    
     <>
+      <NavBar />
 
-
-      <NavBar/>
-
-      <Brand title="Dylan's To Do App" tagline="Get it all done !" /> 
-        <LoginHeader>Email Login</LoginHeader>   
-        <UserLogin></UserLogin>
-        <PageLayout>
-          <LoginHeader>Provider Login</LoginHeader>
-          <GithubAuthProvider>Login with Github</GithubAuthProvider>
-          <GoogleProvider>Login with Google</GoogleProvider>
-        </PageLayout> 
+      <Brand title="Dylan's To Do App" tagline="Get it all done !" />
+      <LoginHeader padding="2rem 0rem 0rem 0rem">Email Login</LoginHeader>
+      <UserLogin></UserLogin>
+      <PageLayout>
+        <LoginHeader padding="2rem">Provider Login</LoginHeader>
+        <GithubAuthProvider>Login with Github</GithubAuthProvider>
+        <GoogleProvider func={errorProvider}>Login with Google</GoogleProvider>
+        <ErrorMessage>{Mess}</ErrorMessage>
+      </PageLayout>
     </>
-  )
+  );
 }

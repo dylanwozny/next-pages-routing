@@ -11,7 +11,8 @@ const LoginStatus = styled.figure`
   padding: 0.125rem 0.5rem;
   border-radius: 3px;
   cursor: pointer;
-  padding-top: 0.5rem;
+  height: 100%;
+ 
   
 
   img {
@@ -19,11 +20,15 @@ const LoginStatus = styled.figure`
   }
 
   figcaption {
-    text-align: center;
-    font-size: 9px;
+    text-align: left;
+    font-size: 11px;
+    p{
+      margin-bottom: 0rem;
+    }
 
     p:first-child {
       font-weight: 600;
+      margin-bottom: 0.5rem;
     }
     p:last-child {
       font-weight: 8px;    

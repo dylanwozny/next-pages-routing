@@ -1,35 +1,45 @@
-import Image from 'next/image'
+import Image from "next/image";
 import { ProviderButton } from "../../../ui/buttons/";
-import {useRouter} from 'next/router';
-import { useState } from 'react';
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { auth } from "../../../../firebase";
 import google from "./google.png";
-import {GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
-import {useAuth} from '../../../../hooks/useAuth';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useAuth } from "../../../../hooks/useAuth";
 
-function GoogleProvider({ children,  ...props }) {
-    const [isValidUser,setIsValidUser] = useState(null);
-    // observer hook
-    // if value returned valid user or null
-    const user = useAuth();
-    // routing pages, this is the built in router
-    const router = useRouter();
-    const provider = new GoogleAuthProvider();
-    
-    async function signIn(){
-        setIsValidUser(await signInWithPopup(auth,provider))
-    }
-    // click function
-    function handleClick(){
-        signIn()
-    }
+// Children are the value between <googleprovider>--children--<googleprovider> in the element
+function GoogleProvider({ func, children, ...props }) {
+  const [isValidUser, setIsValidUser] = useState(null);
+  // observer hook
+  // if value returned valid user or null
+  const user = useAuth();
+  // routing pages, this is the built in router
+  const router = useRouter();
+  const provider = new GoogleAuthProvider();
 
-if(isValidUser){
-    router.push('/todo');
-}
+  // ASYNC is an alternative to .then promise
+  async function signIn() {
+    try {
+      setIsValidUser(await signInWithPopup(auth, provider));
+    } catch (error) {
+      func(error.message);
+    }
+  }
+
+  // click function
+  function handleClick() {
+    signIn();
+  }
+
+  if (isValidUser) {
+    // Create document for first time user
+    let userID = user.uid;
+    console.log("the unset user id");
+    console.log(userID);
+    router.push("/todo");
+  }
 
   return (
-      
     <ProviderButton onClick={handleClick}>
       <div>
         <Image

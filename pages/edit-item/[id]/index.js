@@ -21,10 +21,25 @@ import { useRouter } from "next/router";
 import { ItemDescription } from "components/todos/styles";
 import { ToDoContext } from "context/state";
 
-
 // ---styled components---
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
+`;
+
+const ErrorMessage = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+
+  color: red;
+  margin-bottom: 2rem;
+
+  .show {
+    display: block;
+    transform: 1s;
+    text-transform: capitalize;
+  }
 `;
 
 // ---component function---
@@ -49,6 +64,7 @@ function AddItemPage(props) {
   const [desc, setDesc] = useState(curDesc);
   const [category, setCategory] = useState(curCategory);
   const [done, setDone] = useState(curCompleted);
+  const [serverEr, setServerEr] = useState("");
 
   //Use local storage for fixing losing data on page refresh
   function saveToLocalStorage(store, name) {
@@ -56,31 +72,22 @@ function AddItemPage(props) {
     window.localStorage.setItem(name, stringStore);
   }
 
-  // useEffect(()=>{
-  //   let currentItem = todos[`${theId}`];
-  //   console.log(todos)
-  //   saveToLocalStorage(currentItem,'store');
-  //   const reduxState = localStorage.getItem('store');
-  //   const thisObject = JSON.parse(reduxState);
-  //   console.log("redux below")
-  //   console.log(thisObject)
-
-  // })
-
-  // setItemObject(todos[`${theId}`]);
-  // console.log(todos)
-
   // ----db function to get data and update firebase db----
   async function updateUserData(newToDo) {
     console.log(newToDo);
     // functions below need to be async to get data
     if (user) {
-      const docPath = `todos/${userId}`;
-      console.log(docPath);
-      const docRef = await doc(db, docPath);
-      const temp = await updateDoc(docRef, newToDo);
-      const todos = await getDoc(docRef);
-      console.log(todos.data());
+      try {
+        const docPath = `todos/${userId}`;
+        console.log(docPath);
+        const docRef = await doc(db, docPath);
+        const temp = await updateDoc(docRef, newToDo);
+        // get new updated doc and redirect once request is done !
+        const todos = await getDoc(docRef).then(redirectPage());
+        console.log(todos.data());
+      } catch (error) {
+        setServerEr(error.message);
+      }
     }
   }
 
@@ -93,54 +100,42 @@ function AddItemPage(props) {
   // validation Flag
   let validPass = true;
 
-    // error message object
-    let errorMessages = {
-      category:"",
-      description:"",
-      isdone:""
-  
-    };
+  // error message object
+  let errorMessages = {
+    category: "",
+    description: "",
+    isdone: "",
+  };
   //validation Logic
-  if(!category){
-    errorMessages["category"] = "Please Do Not Leave Category Blank"
+  if (!category) {
+    errorMessages["category"] = "Please Do Not Leave Category Blank";
     validPass = false;
   }
 
-  if(!desc){
-    errorMessages["description"] = "Please Do Not Leave Description Blank"
+  if (!desc) {
+    errorMessages["description"] = "Please Do Not Leave Description Blank";
     validPass = false;
   }
 
   console.log("did it pass?");
   console.log(validPass);
 
-
   //----form submit event handler----
   function handleSubmit(e) {
     e.preventDefault();
     // if validation fail do nothing
-    if(!validPass){
-
+    if (!validPass) {
+    } else {
+      updateUserData({
+        [`${theId}`]: {
+          id: theId,
+          desc: desc,
+          category: category,
+          completed: done,
+        },
+      });
     }
-
-    else{
-    updateUserData({
-      [`${theId}`]: {
-        id: theId,
-        desc: desc,
-        category: category,
-        completed: done,
-      },
-    });
-
-    
-      redirectPage();
-    
   }
-  }
-
-
-
 
   //----component render----
   return (
@@ -166,29 +161,29 @@ function AddItemPage(props) {
           <AddNewItemForm submitHandler={(e) => handleSubmit(e)}>
             <InputWrapper>
               <UniqueId id={theId} />
-              <ItemTextArea
-                error={errorMessages["description"]}
-                type="description"
-                theplaceholder={curDesc}
-                changeHandler={(e) => setDesc(e.currentTarget.value)}
-              />
-              
-              
+
               <ItemTextArea
                 error={errorMessages["category"]}
                 type="category"
                 theplaceholder={curCategory}
                 changeHandler={(e) => setCategory(e.currentTarget.value)}
               />
+              <ItemTextArea
+                error={errorMessages["description"]}
+                type="description"
+                theplaceholder={curDesc}
+                changeHandler={(e) => setDesc(e.currentTarget.value)}
+              />
               <ItemIsDone
                 value={curCompleted}
                 changeHandler={(e) => setDone(e.currentTarget.checked)}
               />
             </InputWrapper>
-            <Button  type="submit" bgcolor="crimson" color="white">
+            <Button type="submit" bgcolor="crimson" color="white">
               Add New To Do Item
             </Button>
           </AddNewItemForm>
+          <ErrorMessage>{serverEr}</ErrorMessage>
         </ContentSection>
       </main>
     </>

@@ -1,20 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FormControl = styled.div`
-   margin-bottom: 1rem;
+  margin-bottom: 0rem;
 `;
 
- 
-import Label from "./Label" 
-import Input from "./Input"
- 
- function TextInput({id, label, ...props}) {
-    return (
-        <FormControl>
-            <Label id={id} label={label} {...props}/> 
-            <Input {...props}/> 
-        </FormControl>
-    )
+import Label from "./Label";
+import Input from "./Input";
+
+function TextInput({ id, label, ...props }) {
+  return (
+    <FormControl>
+      <Label id={id} label={label} {...props} />
+      <Input {...props} />
+    </FormControl>
+  );
 }
 
-export default TextInput
+export default TextInput;
