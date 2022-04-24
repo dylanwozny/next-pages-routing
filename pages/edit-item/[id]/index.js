@@ -55,9 +55,16 @@ function AddItemPage(props) {
   console.log(userId);
 
   let currentItem = todos[`${theId}`];
-  let curDesc = currentItem.desc;
-  let curCategory = currentItem.category;
-  let curCompleted = currentItem.completed;
+
+  let curDesc = "";
+  let curCategory = "";
+  let curCompleted = "";
+
+  if (currentItem) {
+    curDesc = currentItem.desc;
+    curCategory = currentItem.category;
+    curCompleted = currentItem.completed;
+  }
 
   const user = useAuth();
   const [uid, setUid] = useState();
