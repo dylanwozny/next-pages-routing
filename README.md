@@ -7,7 +7,7 @@ Based on an app built with vanilla js and parcel
 **Vercel**,
 **Javascript,
 React,
-Rirebase,
+Firebase,
 Next.js**,
 **Styled Components**
 
