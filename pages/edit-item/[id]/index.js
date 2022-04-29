@@ -52,7 +52,6 @@ function AddItemPage(props) {
   const { todos, setTodos, accessContext, setEditTodo, editTodo, userId } =
     useContext(ToDoContext);
   accessContext();
-  console.log(userId);
 
   let currentItem = todos[`${theId}`];
 
@@ -81,17 +80,15 @@ function AddItemPage(props) {
 
   // ----db function to get data and update firebase db----
   async function updateUserData(newToDo) {
-    console.log(newToDo);
     // functions below need to be async to get data
     if (user) {
       try {
         const docPath = `todos/${userId}`;
-        console.log(docPath);
+
         const docRef = await doc(db, docPath);
         const temp = await updateDoc(docRef, newToDo);
         // get new updated doc and redirect once request is done !
         const todos = await getDoc(docRef).then(redirectPage());
-        console.log(todos.data());
       } catch (error) {
         setServerEr(error.message);
       }
@@ -124,9 +121,6 @@ function AddItemPage(props) {
     validPass = false;
   }
 
-  console.log("did it pass?");
-  console.log(validPass);
-
   //----form submit event handler----
   function handleSubmit(e) {
     e.preventDefault();
@@ -149,7 +143,6 @@ function AddItemPage(props) {
     <>
       <NavBar />
       <main>
-        {/* <p>{ItemDescription}</p> */}
         <ContentSection>
           <Link href="/todo">
             <a>

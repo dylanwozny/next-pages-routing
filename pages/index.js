@@ -26,21 +26,17 @@ const ErrorMessage = styled.div`
     transform: 1s;
     text-transform: capitalize;
   }
-
 `;
 
 // <> this is a fragment, use instead of div
 export default function Home() {
   // provider error message
 
-
-  const [Mess,setMess] = useState('');
+  const [Mess, setMess] = useState("");
 
   let erMessage = "";
   const errorProvider = (message) => {
-    // console.log(message);
     setMess(message);
-    
   };
 
   return (

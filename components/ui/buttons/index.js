@@ -5,67 +5,59 @@ import styled from "styled-components";
 // with {props} you can add styles from anywhere !
 // not clear rule ! You can do another way.
 const Button = styled.button`
-padding: 1rem 2rem;
-color: #65ade5;
-background-color: transparent;
-border: 2px #65ade5 solid;
-border-radius: 4px;
-display: block;
-margin: 0 auto;
-font-family: "Open Sans",sans-serif;
-font-weight: 600;
-margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  color: #65ade5;
+  background-color: transparent;
+  border: 2px #65ade5 solid;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
 
-&:hover{
+  &:hover {
     background-color: gray;
     cursor: pointer;
     background-color: #65ade5;
     color: white;
-}
-
-`
+  }
+`;
 
 const ProviderButton = styled(Button)`
-border: none;
-color: #22273a; 
-box-shadow: 2px 2px 2px 2px gray;
-display: flex;
-justify-content: center;
-align-items: center;
+  border: none;
+  color: #22273a;
+  box-shadow: 2px 2px 2px 2px gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-&:hover{
+  &:hover {
     background-color: gray;
     cursor: pointer;
     color: white;
-}
+  }
 
-span{
+  span {
     padding-left: 1rem;
-}
-
-
-`
+  }
+`;
 
 const SvgButton = styled.button`
-padding: .5rem;
-background: transparent;
-border: none;
-&:hover svg{
-    fill: ${props => props.userColor || "black"};
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  &:hover svg {
+    fill: ${(props) => props.userColor || "black"};
+  }
 
-}
-
-svg{
+  svg {
     height: 100%;
     width: 2rem;
     fill: none;
     cursor: pointer;
-    color: ${props => props.userColor || "black"};
-}
-
+    color: ${(props) => props.userColor || "black"};
+  }
 `;
 
-
-
-
-export {Button, ProviderButton, SvgButton};
+export { Button, ProviderButton, SvgButton };

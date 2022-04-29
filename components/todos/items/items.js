@@ -42,7 +42,6 @@ const ErrorMessageDelete = styled.span`
   .show {
     display: block;
     transform: 1s;
-    
   }
 `;
 const name = styled.li``;
@@ -100,10 +99,6 @@ const DeleteButton = styled(Button)`
 
 const CancelButton = styled(Button)``;
 
-// ---- delete item produces a popup window, code will be here ?
-// grab id, pass it into something with a button press
-// on button press, have a pop up window, then run query to delete item.
-
 function List({
   theFlag,
   flag,
@@ -116,19 +111,15 @@ function List({
   // Delete in progress popup
   let theDeletePopup = document.querySelector(".delete-popup");
 
-  console.log("this is the toitemsetter " + todoSet);
   // grabbing the uuid key of each doc
   let docKeys = Object.getOwnPropertyNames(todoItem);
-  console.log(docKeys);
 
   // Rerender on delete logic
   const deleteObject = () => {
     if (theFlag > 1) {
       flag(1);
-      console.log(theFlag);
     } else {
       flag(2);
-      console.log(theFlag);
     }
   };
 
@@ -149,9 +140,7 @@ function List({
     let theClass = "popup" + theKey.toString();
     let theElement = document.querySelector("." + theClass);
     theElement.classList.remove("show");
-    console.log(theElement);
-    console.log("delete item confirmed");
-    console.log(theKey);
+
     // RUN QUERY HERE AND REFRESH LIST
     async function deleteFireBaseDoc(key) {
       try {
@@ -175,9 +164,6 @@ function List({
     theKey = "popup" + theKey.toString();
     let theElement = document.querySelector("." + theKey);
     theElement.classList.remove("show");
-    console.log(theElement);
-    console.log("cancel item");
-    console.log(theKey);
   }
 
   //delete item logic
@@ -190,11 +176,7 @@ function List({
     theKey = "popup" + theKey.toString();
     let theElement = document.querySelector("." + theKey);
     theElement.classList.add("show");
-    console.log(theUid);
-    console.log("delete item");
-    console.log(keyArray);
   }
-  // Might have to put delete confirm here
 
   // map to make items
   // loop
@@ -222,14 +204,6 @@ function List({
       isDoneClass = "inprogress";
       isDoneBody = "";
     }
-
-    // let setSession = window.sessionStorage.setItem("animals","cat");
-
-    // FIX STYLING ON COMPONENTS
-    // use the key value to delete the item and then refresh the list
-
-    // REWORK BUTTONS !!!
-    // use Props passed components or just JSX HTML
 
     return (
       <>
@@ -261,7 +235,9 @@ function List({
           </ListHeader>
           <ListBody>
             <ListDone className={isDoneClass}>{isDone}</ListDone>
-            <li><p>{todoItem[data].desc}</p></li>
+            <li>
+              <p>{todoItem[data].desc}</p>
+            </li>
           </ListBody>
         </ListItem>
       </>

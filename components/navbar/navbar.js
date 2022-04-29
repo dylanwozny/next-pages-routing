@@ -3,31 +3,26 @@
 
 // Link is a pre built component
 
-import Link from 'next/link';
-import {navbar} from "./styles.module.scss";
-import { UserLoginStatus } from 'components/auth/login-status';
+import Link from "next/link";
+import { navbar } from "./styles.module.scss";
+import { UserLoginStatus } from "components/auth/login-status";
 
-function NavBar(props){
-return(
+function NavBar(props) {
+  return (
     <nav className={navbar}>
-        <ul>
-            <li>
-                
-                <Link href="/todo">
-                    <a>Home</a>
-                </Link>
-            </li>
-            {/* <li>
-                <Link href="/login">
-                    <a>Login</a>
-                </Link>                
-            </li> */}       
-            <li>
-            <UserLoginStatus></UserLoginStatus>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <Link href="/todo">
+            <a>Home</a>
+          </Link>
+        </li>
+
+        <li>
+          <UserLoginStatus></UserLoginStatus>
+        </li>
+      </ul>
     </nav>
-  )
+  );
 }
 
 export default NavBar;

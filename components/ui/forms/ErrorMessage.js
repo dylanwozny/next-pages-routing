@@ -1,20 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Message = styled.span`
-    color: red;
-    line-height: 1.5;
-    
+  color: red;
+  line-height: 1.5;
 `;
 
-
-
-function ValidationMessage({alert,...props}){
-return(
-
+function ValidationMessage({ alert, ...props }) {
+  return (
     <Message>
-        <p>{alert}</p>
+      <p>{alert}</p>
     </Message>
-  )
+  );
 }
 
 export default ValidationMessage;

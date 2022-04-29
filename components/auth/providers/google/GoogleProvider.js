@@ -34,8 +34,6 @@ function GoogleProvider({ func, children, ...props }) {
   if (isValidUser) {
     // Create document for first time user
     let userID = user.uid;
-    console.log("the unset user id");
-    console.log(userID);
     router.push("/todo");
   }
 

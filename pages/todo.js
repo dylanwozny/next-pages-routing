@@ -81,10 +81,8 @@ function ToDoPage(props) {
         let userRef = doc(db, docRef);
         // ask server for information
         let userToDos = await getDoc(userRef);
-        console.log("the data of the user");
-        console.log(userToDos.data());
+
         if (!userToDos.data()) {
-          console.log("nothing!");
           addNewUser(user.uid);
         }
         //taking data from db, using setter to pass information into settodoitem as an object
@@ -110,21 +108,10 @@ function ToDoPage(props) {
     // if there is data
     //  todoItem data is retrieved outside useeffect functio
 
-    // Put logic into react component
-    console.log("state below");
-    console.log(todoItem);
-    console.log("the context state");
-    console.log(todos);
     // set user id in context
     setUserId(user.uid);
-    console.log(userId);
 
     let docKeys = Object.getOwnPropertyNames(todoItem);
-    console.log(docKeys);
-
-    docKeys.forEach((element) => {
-      console.log(todoItem[element].desc);
-    });
 
     if (todoItem) {
       return (

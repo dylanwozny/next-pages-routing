@@ -54,17 +54,14 @@ function AddItemPage(props) {
 
   // ----db function to get data and update firebase db----
   async function updateUserData(newToDo) {
-    console.log(newToDo);
-
     // functions below need to be async to get data
     if (user) {
       try {
         const docPath = `todos/${user.uid}`;
-        console.log(docPath);
+
         const docRef = await doc(db, docPath);
         const temp = await updateDoc(docRef, newToDo);
         const todos = await getDoc(docRef).then(redirectPage());
-        console.log(todos.data());
       } catch (error) {
         setServerEr(error.message);
       }
@@ -95,9 +92,6 @@ function AddItemPage(props) {
     errorMessages["description"] = "Please Do Not Leave Description Blank";
     validPass = false;
   }
-
-  console.log("did it pass?");
-  console.log(validPass);
 
   //----form submit event handler----
   function handleSubmit(e) {

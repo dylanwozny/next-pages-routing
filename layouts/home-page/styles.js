@@ -13,7 +13,7 @@ const PageLayout = styled.main`
 `;
 
 const LoginHeader = styled.h2`
-  padding: ${(props) => props.padding || "0rem"};;
+  padding: ${(props) => props.padding || "0rem"};
   max-width: 25rem;
   margin: 0 auto;
   text-align: center;
