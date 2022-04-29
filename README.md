@@ -2,9 +2,9 @@
 This application uses REACT and the REACT library NEXT.js.
 Based on an app built with vanilla js and parcel
 
-# To do App. Built with:
+# Built with:
 
-**vercel**,
+**Vercel**,
 **Javascript,
 React,
 Rirebase,
