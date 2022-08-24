@@ -89,11 +89,14 @@ const PopUp = styled.div`
 `;
 
 const DeleteButton = styled(Button)`
-  border: 2px solid red;
-  color: red;
+background-color: red;
+color: white;
+
 
   &:hover {
-    background-color: red;
+      border: 2px solid red;
+  color: red;
+  background-color: white;
   }
 `;
 
