@@ -6,9 +6,9 @@ import styled from "styled-components";
 // not clear rule ! You can do another way.
 const Button = styled.button`
   padding: 1rem 2rem;
-  color: #65ade5;
+  color: #D2483F;
   background-color: transparent;
-  border: 2px #65ade5 solid;
+  border: 2px #D2483F solid;
   border-radius: 4px;
   display: block;
   margin: 0 auto;
@@ -17,9 +17,8 @@ const Button = styled.button`
   margin-bottom: 1rem;
 
   &:hover {
-    background-color: gray;
     cursor: pointer;
-    background-color: #65ade5;
+    background-color: #D2483F;
     color: white;
   }
 `;
