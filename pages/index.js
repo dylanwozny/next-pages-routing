@@ -48,7 +48,6 @@ export default function Home() {
       <UserLogin></UserLogin>
       <PageLayout>
         <LoginHeader padding="2rem">Provider Login</LoginHeader>
-        <GithubAuthProvider>Login with Github</GithubAuthProvider>
         <GoogleProvider func={errorProvider}>Login with Google</GoogleProvider>
         <ErrorMessage>{Mess}</ErrorMessage>
       </PageLayout>
