@@ -4,9 +4,8 @@ import { SvgButton } from "components/ui/buttons";
 const AddContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
+  color: #D2483F;
   box-shadow: 0 0 2px 0px #dddddd;
-  background-color: #fcfcfc;
   margin-bottom: 2rem;
   max-width: 18rem;
   padding: 1rem;
