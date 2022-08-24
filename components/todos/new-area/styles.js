@@ -10,13 +10,12 @@ const AddContainer = styled.div`
   margin-bottom: 2rem;
   max-width: 18rem;
   padding: 1rem;
-  border: solid 2px #65ade5;
-  color: #65ade5;
+  border: solid 2px #D2483F;
   align-items: center;
   border-radius: 5px;
 
   &:hover {
-    background-color: #65ade5;
+    background-color: #D2483F;
     cursor: pointer;
     color: white;
   }
