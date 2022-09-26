@@ -10,6 +10,7 @@
 }
 .brand h1 {
   font-weight: 600;
+  font-size: clamp(2.441rem, 8vw, 3.052rem);
 }
 .brand p {
   font-size: 18px;
