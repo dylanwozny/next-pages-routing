@@ -44,13 +44,14 @@ export default function Home() {
       <NavBar />
 
       <Brand title="Dylan's To Do App" tagline="Get it all done !" />
-      <LoginHeader padding="2rem 0rem 0rem 0rem">Email Login</LoginHeader>
-      <UserLogin></UserLogin>
-      <PageLayout>
+          <PageLayout>
         <LoginHeader padding="2rem">Provider Login</LoginHeader>
         <GoogleProvider func={errorProvider}>Login with Google</GoogleProvider>
         <ErrorMessage>{Mess}</ErrorMessage>
       </PageLayout>
+      <LoginHeader padding="2rem 0rem 0rem 0rem">Email Login</LoginHeader>
+      <UserLogin></UserLogin>
+
     </>
   );
 }
