@@ -97,7 +97,15 @@ const DeleteButton = styled(Button)`
   }
 `;
 
-const CancelButton = styled(Button)``;
+const CancelButton = styled(Button)`
+  background-color: ${(props) => props.theme.secondaryColor};
+  color: ${(props) => props.theme.whiteHighlight};
+
+  &:hover {
+    background-color: ${(props) => props.theme.whiteHighlight};
+    color: ${(props) => props.theme.secondaryColor};
+  }
+`;
 
 function List({
   theFlag,

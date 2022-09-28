@@ -22,7 +22,6 @@ const ErrorMessage = styled.div`
   font-style: italic;
 
   color: red;
-  margin-bottom: 2rem;
 
   .show {
     display: block;

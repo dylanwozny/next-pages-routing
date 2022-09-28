@@ -6,19 +6,24 @@ const AddContainer = styled.div`
   justify-content: space-between;
 
   box-shadow: 0 0 2px 0px #dddddd;
-  background-color: #fcfcfc;
+  background-color: ${(props) => props.theme.secondaryColor};
   margin-bottom: 2rem;
   max-width: 18rem;
   padding: 1rem;
-  border: solid 2px #65ade5;
-  color: #65ade5;
+  border: solid 2px ${(props) => props.theme.secondaryColor};
+  color: ${(props) => props.theme.whiteHighlight};
   align-items: center;
-  border-radius: 5px;
+  border-radius: 35px;
 
   &:hover {
-    background-color: #65ade5;
+    background-color: ${(props) => props.theme.whiteHighlight};
     cursor: pointer;
-    color: white;
+    color: ${(props) => props.theme.secondaryColor};
+  }
+
+  svg {
+    color: ${(props) => props.theme.whiteHighlight};
+    fill: ${(props) => props.theme.successColor};
   }
 `;
 

@@ -21,7 +21,7 @@ function UserLoginStatus({ size, color, status, ...props }) {
     let userEmail = user.email;
     return (
       <LoginStatus {...props} onClick={handleClick}>
-        <IoPersonCircleSharp size={size || "2.5rem"} color="green" />
+        <IoPersonCircleSharp size={size || "2.5rem"} color="rgb(86,164,100)" />
         <figcaption>
           <p>{userEmail}</p>
           <p>Log Out</p>

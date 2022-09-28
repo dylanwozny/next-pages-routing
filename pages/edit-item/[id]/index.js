@@ -22,6 +22,16 @@ import { ItemDescription } from "components/todos/styles";
 import { ToDoContext } from "context/state";
 
 // ---styled components---
+const AddNewButton = styled(Button)`
+  background-color: ${(props) => props.theme.secondaryColor};
+  color: ${(props) => props.theme.whiteHighlight};
+
+  &:hover {
+    background-color: ${(props) => props.theme.whiteHighlight};
+    color: ${(props) => props.theme.secondaryColor};
+  }
+`;
+
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
 `;
@@ -179,9 +189,7 @@ function AddItemPage(props) {
                 changeHandler={(e) => setDone(e.currentTarget.checked)}
               />
             </InputWrapper>
-            <Button type="submit" bgcolor="crimson" color="white">
-              Add New To Do Item
-            </Button>
+            <AddNewButton>Edit Item</AddNewButton>
           </AddNewItemForm>
           <ErrorMessage>{serverEr}</ErrorMessage>
         </ContentSection>

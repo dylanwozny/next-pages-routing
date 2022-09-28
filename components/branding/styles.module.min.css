@@ -1,2 +1,2 @@
-.brand{max-width:25rem;margin:0 auto;text-align:center;padding:1rem}.brand svg{width:10rem}.brand h1{font-weight:600}.brand p{font-size:18px;font-style:italic}
+.brand{max-width:25rem;margin:0 auto;text-align:center;padding:2rem 1rem 1rem 1rem}.brand svg{width:10rem}.brand h1{font-size:clamp(2.3rem,8vw,3.441rem);font-weight:600}.brand p{font-size:18px;font-style:italic}
 /*# sourceMappingURL=styles.module.min.css.map */

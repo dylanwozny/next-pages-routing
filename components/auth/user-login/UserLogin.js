@@ -59,6 +59,16 @@ const FlexContainer = styled.div`
     color: white;
     background-color: #999cb2;
   }
+
+  .sign-in-btn {
+    color: white;
+    background-color: ${(props) => props.theme.secondaryColor};
+  }
+
+  .sign-in-btn:hover {
+    background-color: transparent;
+    color: ${(props) => props.theme.secondaryColor}
+  }
 `;
 
 //------------------------------States---------------------------
@@ -185,13 +195,10 @@ function UserLogin({ ...props }) {
         <ErrorMessage>{errorMessages["password"]}</ErrorMessage>
         <FlexContainer>
           <Button
-            bgcolor="#ed4747"
-            color="white"
-            noBoxShadow
-            {...props}
             type="submit"
             value="sign_in"
             name="sign_in_button"
+            className="sign-in-btn"
           >
             LOGIN
           </Button>

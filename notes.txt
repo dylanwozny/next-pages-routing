@@ -40,3 +40,7 @@ https://reactjs.org/docs/thinking-in-react.html
 
 npm install swr
 
+
+------theme-ing styled components-------
+add color vars to app.js and wrap the component
+full instructions: https://stackoverflow.com/questions/43502813/using-javascript-variables-with-styled-components

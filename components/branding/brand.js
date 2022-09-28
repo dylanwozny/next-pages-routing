@@ -6,7 +6,7 @@ import {brand} from './styles.module.scss'
 function Brand({title,tagline}){
 return(
     <header className={brand}>
-        <SvgLogo width1="9rem" height1="12rem" />
+        <SvgLogo width1="9rem" height1="6rem" />
         <h1>{title || "Brand Text"}</h1>
         <p>{tagline || "Tagline Text"}</p>
     </header>

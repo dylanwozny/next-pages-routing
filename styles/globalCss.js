@@ -19,6 +19,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
 article,
 aside,
@@ -34,9 +35,7 @@ section {
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -355,15 +354,13 @@ table th {
 }
 
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;0,900;1,100;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap");
-
 html {
   font-size: 100%;
-  background-color: #f5f2f2;
+  background-color: #f4f7f5;
 } /*16px*/
 
 body {
-  background-color: #f5f2f2;
+  background-color: #f4f7f5;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.75;

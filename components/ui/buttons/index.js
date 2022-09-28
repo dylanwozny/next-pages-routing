@@ -1,14 +1,17 @@
 // diffrent button styles here
 
 import styled from "styled-components";
+import { primaryColor } from "../buttons";
+
+const mainColor = "#65ade5";
 
 // with {props} you can add styles from anywhere !
 // not clear rule ! You can do another way.
 const Button = styled.button`
   padding: 1rem 2rem;
-  color: #65ade5;
+  color: ${(props) => props.theme.secondaryColor};
   background-color: transparent;
-  border: 2px #65ade5 solid;
+  border: 2px ${(props) => props.theme.secondaryColor} solid;
   border-radius: 4px;
   display: block;
   margin: 0 auto;
@@ -17,9 +20,8 @@ const Button = styled.button`
   margin-bottom: 1rem;
 
   &:hover {
-    background-color: gray;
+    background-color: ${(props) => props.theme.secondaryColor};
     cursor: pointer;
-    background-color: #65ade5;
     color: white;
   }
 `;
@@ -33,7 +35,7 @@ const ProviderButton = styled(Button)`
   align-items: center;
 
   &:hover {
-    background-color: gray;
+    background-color: ${(props) => props.theme.secondaryColor};
     cursor: pointer;
     color: white;
   }

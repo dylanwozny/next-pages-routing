@@ -19,6 +19,17 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 // ---styled components---
+
+const AddNewButton = styled(Button)`
+  background-color: ${(props) => props.theme.secondaryColor};
+  color: ${(props) => props.theme.whiteHighlight};
+
+  &:hover {
+    background-color: ${(props) => props.theme.whiteHighlight};
+    color: ${(props) => props.theme.secondaryColor};
+  }
+`;
+
 const InputWrapper = styled.div`
   margin-bottom: 3rem;
 `;
@@ -143,9 +154,9 @@ function AddItemPage(props) {
                 changeHandler={(e) => setDesc(e.currentTarget.value)}
               />
             </InputWrapper>
-            <Button type="submit" bgcolor="crimson" color="white">
+            <AddNewButton>
               Add New To Do Item
-            </Button>
+            </AddNewButton>
           </AddNewItemForm>
           <ErrorMessage>{serverEr}</ErrorMessage>
         </ContentSection>
