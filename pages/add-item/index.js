@@ -114,7 +114,7 @@ function AddItemPage(props) {
           id: uid,
           desc,
           category,
-          completed: true,
+          completed: false,
         },
       });
     }
@@ -137,7 +137,6 @@ function AddItemPage(props) {
             width="2.5rem"
             size="1.75rem"
             title="Add New To Do Item"
-            style={{ margin: "1rem 0" }}
           />
           {/* components have functions and properties passed down */}
           <AddNewItemForm submitHandler={(e) => handleSubmit(e)}>
@@ -154,9 +153,7 @@ function AddItemPage(props) {
                 changeHandler={(e) => setDesc(e.currentTarget.value)}
               />
             </InputWrapper>
-            <AddNewButton>
-              Add New To Do Item
-            </AddNewButton>
+            <AddNewButton>Add New To Do Item</AddNewButton>
           </AddNewItemForm>
           <ErrorMessage>{serverEr}</ErrorMessage>
         </ContentSection>

@@ -4,3 +4,4 @@ export { default as ContentSection } from "./add-edit/ContentSection";
 export { default as AddNewItemForm } from "./add-edit/AddNewItemForm";
 export { default as ItemTextArea } from "./add-edit/ItemTextArea";
 export { default as ItemIsDone } from "./add-edit/ItemIsDone";
+export { default as PageHeader } from "./banner/header";

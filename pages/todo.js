@@ -14,6 +14,7 @@ import { useEffect, useState, useContext } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { AddNewContainer } from "components/todos/new-area";
 import { ToDoContext } from "context/state";
+import { PageHeader } from "components/todos";
 
 const ErrorMessage = styled.div`
   margin: 0 auto;
@@ -116,7 +117,12 @@ function ToDoPage(props) {
       return (
         <>
           <NavBar />
-          <Brand title="The to do list!" tagline="Here are your to do items" />
+          {/* <Brand title="The to do list!" tagline="Here are your to do items" /> */}
+          <PageHeader
+            title="The To Do List"
+            tagline="Here are your to do items"
+          ></PageHeader>
+
           <main>
             <ErrorMessage>{serverEr}</ErrorMessage>
             <AddNewContainer />

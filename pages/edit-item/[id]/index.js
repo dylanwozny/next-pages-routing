@@ -165,7 +165,6 @@ function AddItemPage(props) {
             width="2.5rem"
             size="1.75rem"
             title="Edit your current item"
-            style={{ margin: "1rem 0" }}
           />
           {/* components have functions and properties passed down */}
           <AddNewItemForm submitHandler={(e) => handleSubmit(e)}>
