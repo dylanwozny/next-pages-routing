@@ -5,6 +5,7 @@ import TextInput from "../../ui/forms/TextInput";
 import { Button } from "../../ui/buttons/index";
 import Login from "./styled";
 import { useAuth } from "../../../hooks/useAuth";
+import { ReplaceFirebaseM } from "hooks/removeFireMessage";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -31,6 +32,8 @@ const ErrorMessage = styled.div`
   text-align: left;
   font-weight: 600;
   font-style: italic;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 
   color: red;
   margin-bottom: 2rem;
@@ -67,14 +70,14 @@ const FlexContainer = styled.div`
 
   .sign-in-btn:hover {
     background-color: transparent;
-    color: ${(props) => props.theme.secondaryColor}
+    color: ${(props) => props.theme.secondaryColor};
   }
 `;
 
 //------------------------------States---------------------------
 function UserLogin({ ...props }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("placeholder");
+  const [password, setPassword] = useState("placeholder");
   const [userMessage, setUserMessage] = useState("");
 
   const router = useRouter();
@@ -103,14 +106,18 @@ function UserLogin({ ...props }) {
     errorMessages["email"] = "Please Do Not Leave email Blank";
     validPass = false;
   }
-
-  if (!validateEmail(email)) {
+  // ------------email validation-------------//
+  if (email === "placeholder") {
+    validPass = false;
+  } else if (!validateEmail(email)) {
     errorMessages["email"] = "Please type in a valid email address format";
     validPass = false;
-    // document.form1.email.focus();
   }
 
-  if (!password) {
+  // ------------Password validation-------------//
+  if (password === "placeholder") {
+    validPass = false;
+  } else if (!password) {
     errorMessages["password"] = "Please Do Not Leave password Blank";
     validPass = false;
   }
@@ -138,7 +145,8 @@ function UserLogin({ ...props }) {
         ).catch((error) => {
           console.log(error.message);
           console.log(error.code);
-          setUserMessage(error.message);
+
+          setUserMessage(ReplaceFirebaseM(error.message));
         });
 
         if (isValidUser) {
@@ -159,7 +167,7 @@ function UserLogin({ ...props }) {
             Router.push("/todo");
           })
           .catch((error) => {
-            setUserMessage(error.message);
+            setUserMessage(ReplaceFirebaseM(error.message));
             console.log(error.code);
             console.log(error.message);
           });
