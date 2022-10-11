@@ -53,7 +53,7 @@ export default function NavBar(props) {
       <ul>
         <li>
           <Link href="/todo">
-            <a>Home</a>
+            <a>To Do List</a>
           </Link>
         </li>
 

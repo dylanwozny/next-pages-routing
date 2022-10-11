@@ -1,13 +1,8 @@
 import styled from "styled-components";
 
 const PageLayout = styled.main`
-  max-width: 30rem;
-  background-color: white;
-  border: 3px;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.125);
-  .jim {
-    background-color: blue;
-  }
+  max-width: 30rem
+
 `;
 
 const LoginHeader = styled.h2`

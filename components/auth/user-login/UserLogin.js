@@ -27,6 +27,7 @@ import { db } from "../../../firebase";
 // 999CB2
 
 //------------------------------Styled Components---------------------------
+
 const ErrorMessage = styled.div`
   margin: 0 auto;
   text-align: left;

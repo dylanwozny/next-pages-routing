@@ -6,6 +6,12 @@ import { auth } from "../../../../firebase";
 import google from "./google.png";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useAuth } from "../../../../hooks/useAuth";
+import styled from "styled-components";
+
+const ProviderContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 // Children are the value between <googleprovider>--children--<googleprovider> in the element
 function GoogleProvider({ func, children, ...props }) {
@@ -39,7 +45,7 @@ function GoogleProvider({ func, children, ...props }) {
 
   return (
     <ProviderButton onClick={handleClick}>
-      <div>
+      <ProviderContainer>
         <Image
           src={google}
           layout="fixed"
@@ -48,7 +54,7 @@ function GoogleProvider({ func, children, ...props }) {
           quality={30}
         />
         <span>{children}</span>
-      </div>
+      </ProviderContainer>
     </ProviderButton>
   );
 }

@@ -35,6 +35,7 @@ function ItemTextArea({
         <textarea
           defaultValue={theplaceholder}
           onChange={(e) => changeHandler(e)}
+          placeholder="ex. go pick up groceries"
         />
         <ValidationMessage alert={error}></ValidationMessage>
       </ItemDescription>
@@ -48,6 +49,7 @@ function ItemTextArea({
         <textarea
           defaultValue={theplaceholder}
           onChange={(e) => changeHandler(e)}
+          placeholder="ex. home, work etc."
         />
         <ValidationMessage alert={error}></ValidationMessage>
       </ItemDescription>

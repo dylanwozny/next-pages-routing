@@ -54,8 +54,8 @@ const ErrorMessage = styled.div`
 function AddItemPage(props) {
   const user = useAuth();
   const [uid, setUid] = useState();
-  const [desc, setDesc] = useState("");
-  const [category, setCategory] = useState("");
+  const [desc, setDesc] = useState("placeholder");
+  const [category, setCategory] = useState("placeholder");
   const [IdKey, setIdKey] = useState("");
   const [serverEr, setServerEr] = useState("");
   // generate id
@@ -96,6 +96,10 @@ function AddItemPage(props) {
   //validation Logic
   if (!category) {
     errorMessages["category"] = "Please Do Not Leave Category Blank";
+    validPass = false;
+  }
+
+  if (desc === "placeholder" || category === "placeholder") {
     validPass = false;
   }
 

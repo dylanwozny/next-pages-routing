@@ -12,6 +12,22 @@ import { useState } from "react";
 
 const ErrorWrapper = styled.div``;
 
+const OrDiv = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: 31rem;
+  margin: 0 auto;
+  padding: 0rem 0.5rem;
+  span {
+    flex: 1;
+    border-bottom: 1px solid #999cb2;
+  }
+
+  p {
+    margin: 1rem 1rem;
+  }
+`;
+
 const ErrorMessage = styled.div`
   margin: 0 auto;
   text-align: center;
@@ -46,10 +62,15 @@ export default function Home() {
       <Brand title="Dylan's To Do App" tagline="Get it all done !" />
 
       <PageLayout>
-        <LoginHeader padding="2rem">Provider Login</LoginHeader>
+        {/* <LoginHeader padding="2rem">Provider Login</LoginHeader> */}
         <GoogleProvider func={errorProvider}>Login with Google</GoogleProvider>
         <ErrorMessage>{Mess}</ErrorMessage>
       </PageLayout>
+      <OrDiv>
+        <span></span>
+        <p>Or</p>
+        <span></span>
+      </OrDiv>
       <LoginHeader padding="2rem 0rem 0rem 0rem">Email Login</LoginHeader>
       <UserLogin></UserLogin>
     </>

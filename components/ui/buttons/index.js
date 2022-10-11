@@ -33,6 +33,7 @@ const ProviderButton = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 
   &:hover {
     background-color: ${(props) => props.theme.secondaryColor};
