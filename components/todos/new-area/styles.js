@@ -13,7 +13,7 @@ const AddContainer = styled.div`
   border: solid 2px ${(props) => props.theme.secondaryColor};
   color: ${(props) => props.theme.whiteHighlight};
   align-items: center;
-  border-radius: 35px;
+  border-radius: 50px;
 
   &:hover {
     background-color: ${(props) => props.theme.whiteHighlight};
@@ -30,6 +30,7 @@ const AddContainer = styled.div`
 const AddTitle = styled.h2`
   font-weight: 100;
   margin: 0;
+  padding-left: 0.5rem;
 `;
 
 const AddButton = styled(SvgButton)``;
