@@ -13,8 +13,6 @@ const TheNav = styled.nav`
   //   border-bottom: solid 2px #214a88;
   filter: drop-shadow(0 0 0.5rem gray);
 
-
-
   ul {
     display: flex;
     justify-content: space-around;
@@ -53,7 +51,7 @@ export default function NavBar(props) {
       <ul>
         <li>
           <Link href="/todo">
-            <a>To Do List</a>
+            <a>To-Do List</a>
           </Link>
         </li>
 

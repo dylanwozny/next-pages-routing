@@ -11,6 +11,7 @@ const LoginHeader = styled.h2`
   margin: 0 auto;
   text-align: center;
   font-weight: normal;
+
 `;
 
 export { PageLayout, LoginHeader };

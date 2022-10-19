@@ -12,6 +12,13 @@ import { useState } from "react";
 
 const ErrorWrapper = styled.div``;
 
+const LoginBanner = styled.p`
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+`;
+
 const OrDiv = styled.div`
   display: flex;
   align-items: center;
@@ -59,7 +66,7 @@ export default function Home() {
     <>
       <NavBar />
 
-      <Brand title="Dylan's To Do App" tagline="Get it all done !" />
+      <Brand title="Dylan's To-Do App" tagline="Get it all done !" />
 
       <PageLayout>
         {/* <LoginHeader padding="2rem">Provider Login</LoginHeader> */}
@@ -71,7 +78,15 @@ export default function Home() {
         <p>Or</p>
         <span></span>
       </OrDiv>
-      <LoginHeader padding="2rem 0rem 0rem 0rem">Email Login</LoginHeader>
+      <LoginHeader padding="2rem 0rem 0rem 0rem">
+        Email Login / Sign-Up
+      </LoginHeader>
+      <LoginBanner>
+        {" "}
+        Not a user ? fill in the email and password boxes, then hit sign up to
+        get started.
+      </LoginBanner>
+
       <UserLogin></UserLogin>
     </>
   );

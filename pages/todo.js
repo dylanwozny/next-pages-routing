@@ -119,8 +119,8 @@ function ToDoPage(props) {
           <NavBar />
           {/* <Brand title="The to do list!" tagline="Here are your to do items" /> */}
           <PageHeader
-            title="The To Do List"
-            tagline="Here are your to do items"
+            title="The To-Do List"
+            tagline="Here are your to-do items"
           ></PageHeader>
 
           <main>
