@@ -80,6 +80,9 @@ function UserLogin({ ...props }) {
   const [email, setEmail] = useState("placeholder");
   const [password, setPassword] = useState("placeholder");
   const [userMessage, setUserMessage] = useState("");
+  // after sumbit validation
+  const [emailDefault, setEmailDefault] = useState("");
+  const [passwordDefault, setPasswordDefault] = useState("");
 
   const router = useRouter();
   const user = useAuth();
@@ -88,6 +91,8 @@ function UserLogin({ ...props }) {
   //------------------------------Validation Logic---------------------------
   // validation Flag
   let validPass = true;
+  let noEmail = false;
+  let noPassword = false;
 
   // error message object
   let errorMessages = {};
@@ -104,22 +109,24 @@ function UserLogin({ ...props }) {
   };
 
   if (!email) {
-    errorMessages["email"] = "Please Do Not Leave email Blank";
+    errorMessages["email"] = "Please Do Not Leave email Blank.";
     validPass = false;
   }
   // ------------email validation-------------//
   if (email === "placeholder") {
     validPass = false;
+    noEmail = true;
   } else if (!validateEmail(email)) {
-    errorMessages["email"] = "Please type in a valid email address format";
+    errorMessages["email"] = "Please type in a valid email address format.";
     validPass = false;
   }
 
   // ------------Password validation-------------//
   if (password === "placeholder") {
     validPass = false;
+    noPassword = true;
   } else if (!password) {
-    errorMessages["password"] = "Please Do Not Leave password Blank";
+    errorMessages["password"] = "Please Do Not Leave password Blank.";
     validPass = false;
   }
   //------------- can make resusable hook or function--------
@@ -132,9 +139,19 @@ function UserLogin({ ...props }) {
   async function handleSubmit(e) {
     let targetName = e.target.name;
     e.preventDefault();
-    console.log(targetName);
+
+    if (noEmail === true) {
+      errorMessages["email"] = "yup no email";
+    }
 
     if (!validPass) {
+      if (noEmail) {
+        setEmailDefault("please put in a email.");
+      }
+
+      if (noPassword) {
+        setPasswordDefault("please put in a password.");
+      }
     } else {
       //-----------SIGN IN--------
       if (targetName === "form1") {
@@ -189,7 +206,11 @@ function UserLogin({ ...props }) {
           placeholder="janedoe@home.com"
           {...props}
         ></TextInput>
-        <ErrorMessage>{errorMessages["email"]}</ErrorMessage>
+        <ErrorMessage>
+          {errorMessages["email"]}
+          <br />
+          {emailDefault}
+        </ErrorMessage>
         <TextInput
           name="password"
           onChange={(e) => {
@@ -201,7 +222,12 @@ function UserLogin({ ...props }) {
           placeholder="use a secure password"
           {...props}
         />
-        <ErrorMessage>{errorMessages["password"]}</ErrorMessage>
+        <ErrorMessage>
+          {errorMessages["password"]}
+          <br />
+          {passwordDefault}
+        </ErrorMessage>
+        <ErrorMessage></ErrorMessage>
         <FlexContainer>
           <Button
             type="submit"

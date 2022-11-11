@@ -58,6 +58,8 @@ function AddItemPage(props) {
   const [category, setCategory] = useState("placeholder");
   const [IdKey, setIdKey] = useState("");
   const [serverEr, setServerEr] = useState("");
+  const [messC, setMessC] = useState("");
+  const [messD, setMessD] = useState("");
   // generate id
   useEffect(() => {
     setUid(uuid().substring(0, 8));
@@ -87,20 +89,29 @@ function AddItemPage(props) {
 
   // validation Flag
   let validPass = true;
+  // catch error if nothing in box when sumbit pressed
+  let emptyCategory = false;
+  let emptyDescription = false;
 
   // error message object
   let errorMessages = {
     category: "",
     description: "",
   };
-  //validation Logic
+  //--------------validation Logic on input--------------
   if (!category) {
     errorMessages["category"] = "Please Do Not Leave Category Blank";
     validPass = false;
   }
 
-  if (desc === "placeholder" || category === "placeholder") {
+  if (desc === "placeholder") {
     validPass = false;
+    emptyDescription = true;
+  }
+
+  if (category === "placeholder") {
+    validPass = false;
+    emptyCategory = true;
   }
 
   if (!desc) {
@@ -112,6 +123,13 @@ function AddItemPage(props) {
   function handleSubmit(e) {
     e.preventDefault();
     if (!validPass) {
+      //--------------validation Logic submit if empty--------------
+      if (emptyCategory) {
+        setMessC("please put in a Category");
+      }
+      if (emptyDescription) {
+        setMessD("please put in a description");
+      }
     } else {
       updateUserData({
         [`${uid}`]: {
@@ -148,11 +166,11 @@ function AddItemPage(props) {
               <UniqueId id={uid} />
               <ItemTextArea
                 type="category"
-                error={errorMessages.category}
+                error={messC}
                 changeHandler={(e) => setCategory(e.currentTarget.value)}
               ></ItemTextArea>
               <ItemTextArea
-                error={errorMessages.description}
+                error={messD}
                 type="description"
                 changeHandler={(e) => setDesc(e.currentTarget.value)}
               />
